@@ -1,0 +1,30 @@
+# Ignore core WordPress files
+wp-admin/
+wp-includes/
+
+# Ignore specific plugins and themes (điều chỉnh theo nhu cầu)
+wp-content/plugins/akismet/
+wp-content/themes/twentytwelve/
+wp-content/themes/twentythirteen/
+
+# Ignore uploads folder (nếu bạn không muốn lưu trữ ảnh tải lên)
+wp-content/uploads/
+
+# Ignore configuration files
+wp-config.php
+
+# Ignore log files and backup files (điều chỉnh theo nhu cầu)
+*.log
+*.sql
+*.sql.gz
+
+# Ignore .htaccess and other server configuration files
+.htaccess
+
+# Ignore various files and folders (tùy chọn)
+error_log
+node_modules/
+.sass-cache/
+Thumbs.db
+Desktop.ini
+.DS_Store

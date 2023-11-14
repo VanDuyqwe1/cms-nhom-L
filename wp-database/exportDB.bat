@@ -1,0 +1,1 @@
+mysqldump -uroot -p cms-nhom-l > cms-nhom-l_auto.sql

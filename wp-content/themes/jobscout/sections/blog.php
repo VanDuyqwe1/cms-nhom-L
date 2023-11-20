@@ -1,3 +1,52 @@
+<style>
+.thumbnail-image {
+    width: 50%;
+    padding-bottom: 20px
+}
+
+.p-title-blog {
+    float: left;
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+    margin-top: 0;
+}
+
+.p-body-blog {
+    display: flex;
+}
+
+.p-box-blog {
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: #a5a09f;
+    text-align: initial;
+}
+
+.p-content-blog p a {
+    color: #000000;
+}
+
+.p-box-bottom {
+    margin-bottom: 20px
+}
+
+.p-content-blog {
+    line-height: 20px;
+    font-size: 15px
+}
+
+.p-read-more {
+    color: #f0a165
+}
+
+.p-center-blog {
+    text-align: center;
+    padding-bottom: 20px
+}
+</style>
 <?php
 /**
  * Blog Section
@@ -5,7 +54,7 @@
  * @package JobScout
  */
 
-$blog_heading = get_theme_mod( 'blog_section_title', __( 'Latest Articles', 'jobscout' ) );
+$blog_heading = get_theme_mod( 'blog_section_title', __( 'NEWEST BLOG ENTRIES', 'jobscout' ) );
 $sub_title    = get_theme_mod( 'blog_section_subtitle', __( 'We will help you find it. We are your first step to becoming everything you want to be.', 'jobscout' ) );
 $blog         = get_option( 'page_for_posts' );
 $label        = get_theme_mod( 'blog_view_all', __( 'See More Posts', 'jobscout' ) );
@@ -24,55 +73,54 @@ $qry = new WP_Query( $args );
 
 if( $ed_blog && ( $blog_heading || $sub_title || $qry->have_posts() ) ){ ?>
 <section id="blog-section" class="article-section">
-	<div class="container">
+    <div class="container">
         <?php 
             if( $blog_heading ) echo '<h2 class="section-title">' . esc_html( $blog_heading ) . '</h2>';
-            if( $sub_title ) echo '<div class="section-desc">' . wpautop( wp_kses_post( $sub_title ) ) . '</div>'; 
+            // if( $sub_title ) echo '<div class="section-desc">' . wpautop( wp_kses_post( $sub_title ) ) . '</div>'; 
         ?>
-        
-        <?php if( $qry->have_posts() ){ ?>
-           <div class="article-wrap">
-    			<?php 
-                while( $qry->have_posts() ){
-                    $qry->the_post(); ?>
-                    <article class="post">
-        				<figure class="post-thumbnail">
-                            <a href="<?php the_permalink(); ?>" class="post-thumbnail">
-                            <?php 
-                                if( has_post_thumbnail() ){
-                                    the_post_thumbnail( 'jobscout-blog', array( 'itemprop' => 'image' ) );
-                                }else{ 
-                                    jobscout_fallback_svg_image( 'jobscout-blog' ); 
-                                }                            
-                            ?>                        
-                            </a>
-                        </figure>
-                        <header class="entry-header">
-                            <div class="entry-meta">
-                                <?php 
-                                    if( ! $hide_author ) jobscout_posted_by(); 
-                                    if( ! $hide_date ) jobscout_posted_on();
-                                ?> 
-                            </div>
-                            <h3 class="entry-title">
-                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                            </h3>
-                        </header>
-        			</article>			
-        			<?php 
-                }
-                wp_reset_postdata();
-                ?>
-    		</div><!-- .article-wrap -->
-    		
-            <?php if( $blog && $label ){ ?>
-                <div class="btn-wrap">
-        			<a href="<?php the_permalink( $blog ); ?>" class="btn"><?php echo esc_html( $label ); ?></a>
-        		</div>
-            <?php } ?>
-        
+        <?php 
+        setup_postdata($post);
+$thumbnail = get_the_post_thumbnail();
+$title = get_the_title();
+$permalink = get_permalink();
+$posts = get_posts(array(
+    'numberposts'      => 4
+));
+?>
+        </article><!-- #post-<?php the_ID(); ?> -->
+        <div class="row">
+            <?php
+    foreach ($posts as $post) {
+        setup_postdata($post);
+        $thumbnail = get_the_post_thumbnail();
+        $title = get_the_title();
+        $permalink = get_permalink();
+        $content = get_the_content();
+        ?>
+            <div class="col-6 p-box-bottom">
+                <div class="p-box-blog">
+                    <div class="thumbnail-container">
+                        <div class="thumbnail-image p-title-blog">
+                            <?php echo '<a href="' . $permalink . '">' . $thumbnail . '</a>';?></div>
+
+                        <div class="p-content-blog">
+                            <p> <?php echo '<a href="' . $permalink . '">' . $title . '</a>'; ?></p>
+                            <p><?php echo wp_trim_words($content,15,''); ?></p>
+                        </div>
+                        <a href="<?php echo $permalink; ?>" class="p-read-more">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <?php
+    }
+    wp_reset_postdata();
+    ?>
+        </div><!-- .article-wrap -->
+
+       
+
         <?php } ?>
-	</div>
+    </div>
 </section>
 <?php 
-}

@@ -16,6 +16,7 @@
     do_action( 'jobscout_doctype' );
 ?>
 <head itemscope itemtype="https://schema.org/WebSite">
+
 	<?php 
     /**
      * Before wp_head

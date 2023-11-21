@@ -47,6 +47,11 @@ function jobscout_widgets_init(){
             'name'        => __( 'Footer Socials', 'jobscout' ),
             'id'          => 'footer-socials',
             'description' => __( 'Add footer four widgets here.', 'jobscout' ),
+        ),
+        'contact-us'=> array(
+            'name'        => __( 'contact us', 'jobscout' ),
+            'id'          => 'contact-us', 
+            'description' => __( 'Add contact-us widgets here.', 'jobscout' ),
         )
     );
     
@@ -60,6 +65,8 @@ function jobscout_widgets_init(){
     		'before_title'  => '<h2 class="widget-title" itemprop="name">',
     		'after_title'   => '</h2>',
     	) );
+        
+        
     }
 }
 add_action( 'widgets_init', 'jobscout_widgets_init' );

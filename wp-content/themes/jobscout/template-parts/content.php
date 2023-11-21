@@ -47,6 +47,7 @@
 }
 .site-content{
     margin:0 !important;
+    background: rgb(226 227 229) !important;
 }
 .p-blog-background{
     margin-bottom:50px;

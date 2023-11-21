@@ -65,7 +65,7 @@ get_footer();
 //          <div class="p-text-left p-3">
 //             <p class="mb-2 fw-bold">Ha Noi</p>
 //             <p class="mb-2">+84 983 131 351</p>
-//             <p class="mb-2">Request a call from one of our  <br>  Customer Love Account Managers  <br>  We're ready to help you grow.</p>
+//             <p class="mb-2 p-3">Request a call from one of our  <br>  Customer Love Account Managers  <br>  We're ready to help you grow.</p>
 //          </div>
 //       </div>
 //       <div class="col-6">

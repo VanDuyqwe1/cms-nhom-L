@@ -1248,7 +1248,7 @@ class NewsletterSubscription extends NewsletterModule {
 
             $buffer .= $this->_shortcode_label('email', $attrs);
 
-            $buffer .= '<input class="tnp-email" type="email" name="ne" id="' . esc_attr($attrs['id']) . '" value=""';
+            $buffer .= '<input class="tnp-email" type="email" name="ne" id="' . esc_attr($attrs['id']) . '" placeholder="Input your email address" value=""';
             if (isset($attrs['placeholder'])) {
                 $buffer .= ' placeholder="' . esc_attr($attrs['placeholder']) . '"';
             }

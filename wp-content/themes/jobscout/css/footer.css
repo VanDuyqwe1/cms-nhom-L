@@ -1,5 +1,5 @@
 .footer-t {
-    background: #ffffff !important;
+    background: #F2F2F2 !important;
     padding-top: 0 !important;
 }
 
@@ -41,9 +41,11 @@
     font-size: 24px;
     color: white;
     width: 180px;
-    margin-top: -6px;
+    height: 100%;
+    margin-top: -8px !important;
     margin-right: 20px;
-    margin-bottom: 0 !important;
+    margin-bottom: -8px !important;
+    box-sizing: border-box;
 }
 
 .tnp-subscription > form > .tnp-field > .tnp-email {
@@ -56,6 +58,10 @@
     background-repeat: no-repeat;
     background-size: 24px 24px;
     background-position: 5% center;
+}
+
+.tnp-subscription > form > .tnp-field > .tnp-email::placeholder {
+    color: rgb(181,181,181) !important;
 }
 
 .tnp-subscription > form > .tnp-field > .tnp-submit {
@@ -73,7 +79,7 @@
 }
 
 .footer-content {
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 .footer-row > section {
@@ -91,14 +97,22 @@
     justify-content: center;
 }
 
-.footer-row > section > ul > li{
+.footer-row > section > ul > li {
+    margin: 0 14px;
+}
+
+.footer-row > section > ul > li > a {
     color: #000000 !important;
-    font-weight: 800!important;
-    margin: 0 12px;
+    font-weight: 800 !important;
+}
+
+.footer-row > section > ul > li > a:hover {
+    color: #2ace5e !important;
 }
 
 .footer-row > section > img {
+    background: #ffffff;
     width: 40px;
-    margin: 0 12px;
+    margin: 0 8px;
+    border-radius: 50%;
 }
-

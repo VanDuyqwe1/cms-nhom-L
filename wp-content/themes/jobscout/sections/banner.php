@@ -13,7 +13,7 @@ $find_a_job_link = get_option('job_manager_jobs_page_id', 0);
 // var_dump(is_page());
 $queried_object_id = get_queried_object_id();
 $queried_object_slug = get_queried_object()->post_name;
-var_dump($queried_object_slug);
+// var_dump($queried_object_slug);
 
 
 if ($ed_banner && has_custom_header()) { ?>

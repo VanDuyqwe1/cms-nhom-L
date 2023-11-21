@@ -33,9 +33,10 @@ function jobscout_head(){ ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://fontawesome.com/icons/location-dot?f=classic&s=regular" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/regular.min.css" />
-    
-    
-    
+    <!-- footer -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/footer.css" type="text/css"
+          media="screen"/>
+
 
     <?php
 }
@@ -108,13 +109,13 @@ if( ! function_exists( 'jobscout_header' ) ) :
 /**
  * Header Start
 */
-function jobscout_header(){ 
+function jobscout_header(){
     ?>
     <header id="masthead" class="site-header header-one" itemscope itemtype="https://schema.org/WPHeader">
         <?php //if( has_nav_menu( 'secondary' ) || current_user_can( 'manage_options' ) ) jobscout_secondary_navigation(); ?>
         <div class="header-main">
             <div class="container">
-                <?php 
+                <?php
                     jobscout_site_branding( false );
                     echo '<div class="menu-wrap">';
                     jobscout_primary_nagivation();
@@ -507,61 +508,76 @@ function jobscout_footer_start(){
 endif;
 add_action( 'jobscout_footer', 'jobscout_footer_start', 20 );
 
-if( ! function_exists( 'jobscout_footer_top' ) ) :
-/**
- * Footer Top
-*/
-function jobscout_footer_top(){    
-    $footer_sidebars = array( 'footer-one', 'footer-two', 'footer-three', 'footer-four' );
-    $active_sidebars = array();
-    $sidebar_count   = 0;
-    
-    foreach ( $footer_sidebars as $sidebar ) {
-        if( is_active_sidebar( $sidebar ) ){
-            array_push( $active_sidebars, $sidebar );
-            $sidebar_count++ ;
+if (!function_exists('jobscout_footer_top')) :
+    /**
+     * Footer Top
+     */
+    function jobscout_footer_top()
+    {
+        $footer_sidebars = array('footer-subscribe-for-newsletter', 'footer-company-name', 'footer-pages', 'footer-socials');
+        $active_sidebars = array();
+        $sidebar_count = 0;
+
+        foreach ($footer_sidebars as $sidebar) {
+            if (is_active_sidebar($sidebar)) {
+                array_push($active_sidebars, $sidebar);
+                $sidebar_count++;
+            }
+        }
+
+        if ($active_sidebars) { ?>
+            <div class="footer-t">
+                <div class="subscribe-for-newsletter">
+                    <?php dynamic_sidebar($active_sidebars[0]); ?>
+                </div>
+                <div class="footer-content">
+                    <div class="footer-row company-name">
+                        <?php dynamic_sidebar($active_sidebars[1]); ?>
+                    </div>
+                    <div class="footer-row pages">
+                        <?php dynamic_sidebar($active_sidebars[2]); ?>
+                    </div>
+                    <div class="footer-row socials">
+                        <?php dynamic_sidebar($active_sidebars[3]); ?>
+                    </div>
+                    <!--                    <div class="grid column--->
+                    <?php //echo esc_attr($sidebar_count); ?><!--">-->
+                    <!--                        --><?php //foreach ($active_sidebars as $active) { ?>
+                    <!--                            <div class="col">-->
+                    <!--                                --><?php //dynamic_sidebar($active); ?>
+                    <!--                            </div>-->
+                    <!--                        --><?php //} ?>
+                    <!--                    </div>-->
+                </div>
+            </div>
+            <?php
         }
     }
-                 
-    if( $active_sidebars ){ ?>
-        <div class="footer-t">
-    		<div class="container">
-    			<div class="grid column-<?php echo esc_attr( $sidebar_count ); ?>">
-                <?php foreach( $active_sidebars as $active ){ ?>
-    				<div class="col">
-    				   <?php dynamic_sidebar( $active ); ?>	
-    				</div>
-                <?php } ?>
-                </div>
-    		</div>
-    	</div>
-        <?php 
-    }
-}
 endif;
 add_action( 'jobscout_footer', 'jobscout_footer_top', 30 );
 
-if( ! function_exists( 'jobscout_footer_bottom' ) ) :
-/**
- * Footer Bottom
-*/
-function jobscout_footer_bottom(){ ?>
-    <div class="footer-b">
-		<div class="container">
-            <?php 
-                if ( function_exists( 'the_privacy_policy_link' )  )  the_privacy_policy_link( '<div class="privacy-block">', '</div>' );
-            ?>
-			<div class="copyright">            
-            <?php
-                jobscout_get_footer_copyright();
-                jobscout_ed_author_link();
-                jobscout_ed_wp_link();
-            ?>               
+if (!function_exists('jobscout_footer_bottom')) :
+    /**
+     * Footer Bottom
+     */
+    function jobscout_footer_bottom()
+    { ?>
+        <div class="footer-b">
+            <div class="container">
+                <?php
+                if (function_exists('the_privacy_policy_link')) the_privacy_policy_link('<div class="privacy-block">', '</div>');
+                ?>
+                <div class="copyright">
+                    <?php
+                    jobscout_get_footer_copyright();
+                    //                jobscout_ed_author_link();
+                    //                jobscout_ed_wp_link();
+                    ?>
+                </div>
             </div>
-		</div>
-	</div>
-    <?php
-}
+        </div>
+        <?php
+    }
 endif;
 add_action( 'jobscout_footer', 'jobscout_footer_bottom', 40 );
 

@@ -42,7 +42,7 @@ get_header();
 </style>
 	<?php dynamic_sidebar( 'contact-us' ); ?>
 <?php
-
+// get_sidebar();
 get_footer();
 // <div class="container text-center">
 // <div class="p-header">

@@ -1381,6 +1381,10 @@ form.search-form input.search-submit:focus {
   outline-offset: 2px;
 }
 
+#banner-section{
+  margin-bottom: 4rem;
+}
+
 /*=========================
 PAGINATION
 =========================*/
@@ -2458,6 +2462,7 @@ SITE BANNER SECTION
   font-weight: 400;
   /* padding: 10px 20px; */
   padding: 10px 10px;
+  margin-left: 10px;
   color: #666;
 }
 
@@ -2641,7 +2646,8 @@ section.top-job-section .section-title {
 .top-job-section .row div.job_listings article .company-logo {
   width: 100px;
   margin: 0;
-  background: #eeeeee;
+  border: 2px solid #ccc;
+  /* background: #eeeeee; */
 }
 
 .featured-label {

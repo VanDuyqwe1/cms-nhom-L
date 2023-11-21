@@ -13,7 +13,7 @@ $post_slug = get_post_field('post_name', $find_a_job_link);
 $ed_job_category = get_option('job_manager_enable_categories');
 
 if ($post_slug) {
-  $action_page = home_url('/' . $post_slug);
+  $action_page = home_url('/');
 } else {
   $action_page = home_url('/');
 }

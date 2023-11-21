@@ -17,20 +17,22 @@
 }
 
 .p-box-blog {
-    background-color: #f2f2f2;
+    background-color: #fff;
     width: 100%;
     height: 100%;
     padding: 20px;
-    color: #a5a09f;
     text-align: initial;
 }
 
 .p-content-blog p a {
+    font-weight: bold;
     color: #000000;
+    font-size: 15px
+
 }
 
 .p-box-bottom {
-    margin-bottom: 20px
+    margin-top: 20px
 }
 
 .p-content-blog {
@@ -45,6 +47,14 @@
 .p-center-blog {
     text-align: center;
     padding-bottom: 20px
+}
+#blog-section{
+    background-color: #f2f2f2 !important;
+    padding-top:20px !important;
+    padding-bottom:50px !important;
+}
+.article-section{
+    margin:0 !important;
 }
 </style>
 <?php

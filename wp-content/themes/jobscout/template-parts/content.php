@@ -1,8 +1,4 @@
 <style>
-.f {
-    color: red
-}
-
 .thumbnail-image {
     width: 50%;
     padding-bottom: 20px
@@ -21,15 +17,16 @@
 }
 
 .p-box-blog {
-    background-color: #f2f2f2;
+    background-color: #fff;
     width: 100%;
     height: 100%;
     padding: 20px;
-    color: #a5a09f;
 }
 
 .p-content-blog p a {
-    color: #000000;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size:16px
 }
 
 .p-box-bottom {
@@ -47,6 +44,12 @@
 .p-center-blog{
     text-align:center;
     padding-bottom:20px
+}
+.site-content{
+    margin:0 !important;
+}
+.p-blog-background{
+    margin-bottom:50px;
 }
 </style>
 <?php
@@ -69,6 +72,7 @@ $posts = get_posts(array(
 ));
 ?>
 </article><!-- #post-<?php the_ID(); ?> -->
+<div class="p-blog-background">
 <div class="p-center-blog">
     <h1>NEWEST BLOG ENTRIES</h1>
 </div>
@@ -84,9 +88,8 @@ $posts = get_posts(array(
     <div class="col-6 p-box-bottom">
         <div class="p-box-blog">
             <div class="thumbnail-container">
-                <div class="thumbnail-image p-title-blog">
+                <div class="thumbnail-image p-title-blog ">
                     <?php echo '<a href="' . $permalink . '">' . $thumbnail . '</a>';?></div>
-
                 <div class="p-content-blog">
                     <p> <?php echo '<a href="' . $permalink . '">' . $title . '</a>'; ?></p>
                     <p><?php echo wp_trim_words($content,15,''); ?></p>
@@ -100,4 +103,5 @@ $posts = get_posts(array(
     }
     wp_reset_postdata();
     ?>
+</div>
 </div>

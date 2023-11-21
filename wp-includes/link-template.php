@@ -2869,9 +2869,9 @@ function get_the_posts_navigation( $args = array() ) {
 		$next_link = get_previous_posts_link( $args['next_text'] );
 		$prev_link = get_next_posts_link( $args['prev_text'] );
 
-		if ( $prev_link ) {
-			$navigation .= '<div class="nav-previous">' . $prev_link . '</div>';
-		}
+		// if ( $prev_link ) {
+		// 	$navigation .= '<div class="nav-previous">' . $prev_link . '</div>';
+		// }
 
 		if ( $next_link ) {
 			$navigation .= '<div class="nav-next">' . $next_link . '</div>';

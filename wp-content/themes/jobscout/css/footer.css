@@ -1,0 +1,104 @@
+.footer-t {
+    background: #ffffff !important;
+    padding-top: 0 !important;
+}
+
+.subscribe-for-newsletter {
+    padding: 26px 0;
+    background: rgb(234, 117, 30);
+}
+
+.subscribe-for-newsletter > section {
+    margin: 0;
+    padding: 0;
+}
+
+.subscribe-for-newsletter > section {
+    margin: 0;
+    padding: 0;
+}
+
+.tnp-subscription {
+    margin: 0 auto !important;
+    max-width: 900px !important;
+}
+
+.tnp-subscription > form {
+    display: flex;
+    max-width: 900px;
+}
+
+.tnp-subscription > form > .tnp-field {
+    display: flex;
+    margin-bottom: 0 !important;
+}
+
+.tnp-subscription > form > .tnp-field-email {
+    display: flex;
+}
+
+.tnp-subscription > form > .tnp-field-email > label {
+    font-size: 24px;
+    color: white;
+    width: 180px;
+    margin-top: -6px;
+    margin-right: 20px;
+    margin-bottom: 0 !important;
+}
+
+.tnp-subscription > form > .tnp-field > .tnp-email {
+    width: 500px;
+    height: 100%;
+    margin-right: 20px;
+    border-radius: 0 !important;
+    padding-left: 60px;
+    background-image: url('http://localhost:8080/cms-nhom-l/wp-content/uploads/2023/11/email-5-xxl.png');
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: 5% center;
+}
+
+.tnp-subscription > form > .tnp-field > .tnp-submit {
+    padding: 0 30px;
+    background: rgb(234, 117, 30);
+    color: white;
+    font-weight: normal;
+    border: 1px solid white;
+    border-radius: 0 !important;
+    text-transform: uppercase;
+}
+
+.tnp-subscription > form > .tnp-field > .tnp-submit:hover {
+    opacity: 0.6;
+}
+
+.footer-content {
+    padding: 100px 0;
+}
+
+.footer-row > section {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.footer-row > section > h5 {
+    font-size: 24px;
+}
+
+.footer-row > section > ul {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-row > section > ul > li{
+    color: #000000 !important;
+    font-weight: 800!important;
+    margin: 0 12px;
+}
+
+.footer-row > section > img {
+    width: 40px;
+    margin: 0 12px;
+}
+

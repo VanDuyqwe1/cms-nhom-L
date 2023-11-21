@@ -28,24 +28,24 @@ function jobscout_widgets_init(){
             'id'          => 'client', 
             'description' => __( 'Add "Rara Client Logo" widget for client section.', 'jobscout' ),
         ),
-        'footer-one'=> array(
-            'name'        => __( 'Footer One', 'jobscout' ),
-            'id'          => 'footer-one', 
+        'footer-subscribe-for-newsletter'=> array(
+            'name'        => __( 'Footer Subscribe For Newsletter', 'jobscout' ),
+            'id'          => 'footer-subscribe-for-newsletter',
             'description' => __( 'Add footer one widgets here.', 'jobscout' ),
         ),
-        'footer-two'=> array(
-            'name'        => __( 'Footer Two', 'jobscout' ),
-            'id'          => 'footer-two', 
+        'footer-company-name'=> array(
+            'name'        => __( 'Footer Company Name', 'jobscout' ),
+            'id'          => 'footer-company-name',
             'description' => __( 'Add footer two widgets here.', 'jobscout' ),
         ),
-        'footer-three'=> array(
-            'name'        => __( 'Footer Three', 'jobscout' ),
-            'id'          => 'footer-three', 
+        'footer-pages'=> array(
+            'name'        => __( 'Footer Pages', 'jobscout' ),
+            'id'          => 'footer-pages',
             'description' => __( 'Add footer three widgets here.', 'jobscout' ),
         ),
-        'footer-four'=> array(
-            'name'        => __( 'Footer Four', 'jobscout' ),
-            'id'          => 'footer-four', 
+        'footer-socials'=> array(
+            'name'        => __( 'Footer Socials', 'jobscout' ),
+            'id'          => 'footer-socials',
             'description' => __( 'Add footer four widgets here.', 'jobscout' ),
         )
     );

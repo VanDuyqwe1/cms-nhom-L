@@ -159,12 +159,15 @@ function jobscout_content_start(){
     $home_sections = jobscout_get_home_sections(); 
     if( ! ( is_front_page() && ! is_home() && $home_sections ) ){ //Make necessary adjust for pg template.
         echo is_404() ? '<div class="error-holder">' : '<div id="content" class="site-content">'; 
+        
+        get_template_part( 'sections/banner' ); 
+        
         if( is_archive() || is_search() || is_page_template( 'templates/portfolio.php' ) ) : ?>
             <header class="page-header">
                 <?php
                     if( is_archive() ){ 
                         if( is_author() ) { 
-                            $author_title = get_the_author(); ?>
+                            $author_title = get_the_author(); ?>    
                             <div class="author-bio">
                                 <figure class="author-img"><?php echo get_avatar( get_the_author_meta( 'ID' ), 100 ); ?></figure>
                                 <div class="author-content">

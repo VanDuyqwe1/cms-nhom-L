@@ -13,7 +13,8 @@ if ( 'posts' == get_option( 'show_on_front' ) ) { //Show Static Blog Page
     get_header();
     //If any one section are enabled then show custom home page.
     foreach( $home_sections as $section ){
-        get_template_part( 'sections/' . esc_attr( $section ) );  
+        get_template_part( 'sections/' . esc_attr( $section ) ); 
+        // var_dump($section); 
     }
     get_footer();
 }else {

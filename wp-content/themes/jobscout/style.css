@@ -1853,7 +1853,7 @@ COMMENTS AREA
 SIDEBARS
 =========================*/
 .site-content {
-  margin-top: 50px;
+  margin-top: 0;
   margin-bottom: 50px;
 }
 
@@ -2219,25 +2219,35 @@ body.home:not(.banner-enabled) .site-header {
   color: #000;
 }
 
-.main-navigation ul li:hover>a,
-.main-navigation ul li.current-menu-item>a,
-.main-navigation ul li.current_page_item>a,
-.main-navigation ul li.current-menu-ancestor>a,
-.main-navigation ul li.current_page_ancestor>a {
-  /* color: #2ace5e; */
-  color: #000;
-}
 .main-navigation ul li:hover::after,
 .main-navigation ul li.current-menu-item::after,
 .main-navigation ul li.current_page_item::after,
 .main-navigation ul li.current-menu-ancestor::after,
 .main-navigation ul li.current_page_ancestor::after {
+  /* color: #2ace5e; */
+  color: #000;
   content: '';
   background-color: #ea751e;
   display: flex;
   height: 3px;
   position: relative;
   bottom: 3px;
+  transform: scale(1);
+}
+.main-navigation ul li::after
+ {
+  content: '';
+  background-color: #ea751e;
+  display: flex;
+  height: 3px;
+  position: relative;
+  bottom: 3px;
+  transform: scale(0);
+  transition: all .3s;
+}
+
+.main-navigation ul li:hover::after{
+  transform: scale(1);
 }
 
 .main-navigation ul li ul {
@@ -2329,6 +2339,24 @@ SITE BANNER SECTION
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.banner-caption-news,
+.banner-caption-contact {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 9;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.banner-caption-news h1,
+.banner-caption-contact h1{
+  color: #fff;
 }
 
 .banner-caption .caption-inner {
@@ -2644,7 +2672,7 @@ section.top-job-section .section-title {
   line-height: 1.45em;
 }
 
-.top-job-section .row div.job_listings article .company-name {
+.top-job-section .row div.job_listings article .post_date {
   font-size: 0.8888em;
   color: rgba(0, 0, 0, 0.5);
   font-weight: 400;
@@ -2652,12 +2680,42 @@ section.top-job-section .section-title {
   margin-top: 5px;
 }
 
-.top-job-section .row div.job_listings article .company-name::before {
-  content: "@";
+.top-job-section .row div.job_listings article .description ul{
+  margin: 0;
+  font-size: 1rem;
 }
 
+.top-job-section .row div.job_listings article .company-name {
+  padding: 10px 0;
+  display: flex;
+  background: #f2f2f2;
+  font-size: 1rem;
+  line-height: 1;
+
+}
+
+.top-job-section .row div.job_listings article .company-name>div {
+  padding: 0 10px;
+  color: #000;
+}
+
+.top-job-section .row div.job_listings article .company-name .type,
+.top-job-section .row div.job_listings article .company-name .name
+{
+  border-right: 3px solid #e4e4e4;
+  color: #000 !important;
+}
+
+.top-job-section .row div.job_listings article .company-name .location a{
+  color: #000;
+}
+.top-job-section .row div.job_listings article .company-name .type div{
+  color: #000 !important;
+}
+
+
 .top-job-section .row div.job_listings article .entry-meta {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
   margin-top: 15px;
   padding-top: 15px;
   font-size: 1em;
@@ -2748,20 +2806,20 @@ section.top-job-section .section-title {
   font-size: 0.8888em;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: #2ace5e;
+  background: #fff;
   border-radius: 5px;
-  color: #fff;
-  padding: 12px 20px 12px 45px;
-  border: 1px solid #2ace5e;
+  color: #ea751e;
+  padding: 12px 20px;
+  border: 1px solid #ea751e;
   position: relative;
 }
 
 .top-job-section div.job_listings .load_more_jobs:hover {
-  color: #2ace5e;
-  background: none;
+  color: #fff;
+  background: #ea751e;
 }
 
-.top-job-section div.job_listings .load_more_jobs::before {
+/* .top-job-section div.job_listings .load_more_jobs::before {
   content: "";
   background-image: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="%23fff" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>');
   background-repeat: no-repeat;
@@ -2770,12 +2828,12 @@ section.top-job-section .section-title {
   position: absolute;
   top: 17px;
   left: 20px;
-}
+} */
 
-.top-job-section div.job_listings .load_more_jobs:hover::before {
+/* .top-job-section div.job_listings .load_more_jobs:hover::before {
   content: "";
   background-image: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="%232ace5e" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>');
-}
+} */
 
 .top-job-section div.job_listings .load_more_jobs strong {
   font-weight: 700;
@@ -4708,7 +4766,8 @@ WIDGET CALL TO ACTION
 }
 
 .widget_raratheme_companion_cta_widget .raratheme-cta-container {
-  max-width: 590px;
+  /* max-width: 590px; */
+  max-width: 850px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -4720,7 +4779,7 @@ WIDGET CALL TO ACTION
 .widget_raratheme_companion_cta_widget .widget-title {
   font-size: 1.7223em;
   color: #fff;
-  font-weight: 800;
+  font-weight: 650;
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1.5;
@@ -4743,19 +4802,20 @@ WIDGET CALL TO ACTION
 
 .widget_raratheme_companion_cta_widget a.btn-cta {
   display: inline-block;
-  background: #2ace5e;
-  border: 1px solid #2ace5e;
+  /* background: #2ace5e; */
+  border: 1px solid #fff;
   color: #fff;
   font-weight: 700;
   margin: 5px;
   font-size: 0.888em;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   padding: 11px 18px;
 }
 
 .widget_raratheme_companion_cta_widget a.btn-cta:hover {
-  background: none;
-  color: #2ace5e;
+  background: #fff;
+  color: #ea751e;
+  border: 1px solid #ea751e;
 }
 
 .widget_raratheme_companion_cta_widget .text a.btn-cta {
@@ -5679,12 +5739,12 @@ JOB LISTING PAGE
 
 div.job_listings .load_more_jobs {
   display: table;
-  border: 1px solid #2ace5e;
+  border: 1px solid #ea751e;
   text-transform: uppercase;
   font-size: 0.7778em;
   font-weight: 400;
-  background: #2ace5e;
-  color: #fff;
+  /* background: #2ace5e; */
+  color: #ea751e;
   padding: 15px 20px;
   margin-top: 40px;
   margin-left: auto;
@@ -5694,9 +5754,9 @@ div.job_listings .load_more_jobs {
 
 div.job_listings .load_more_jobs:hover,
 div.job_listings .load_more_jobs:focus {
-  background: none;
-  color: #2ace5e;
-  border-bottom-color: #2ace5e;
+  background: #ea751e;
+  color: #fff;
+  border: #ea751e 1px solid;
 }
 
 .site-main .job_listings .jobscout_job_filters {

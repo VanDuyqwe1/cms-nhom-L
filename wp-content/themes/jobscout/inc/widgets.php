@@ -52,6 +52,16 @@ function jobscout_widgets_init(){
             'name'        => __( 'contact us', 'jobscout' ),
             'id'          => 'contact-us', 
             'description' => __( 'Add contact-us widgets here.', 'jobscout' ),
+        ),
+        'banner-title-news'=> array(
+            'name'        => __( 'Banner title news', 'jobscout' ),
+            'id'          => 'banner-title-news', 
+            'description' => __( 'Add footer four widgets here.', 'jobscout' ),
+        ),
+        'banner-title-contact'=> array(
+            'name'        => __( 'Banner title contact', 'jobscout' ),
+            'id'          => 'banner-title-contact', 
+            'description' => __( 'Add footer four widgets here.', 'jobscout' ),
         )
     );
     
